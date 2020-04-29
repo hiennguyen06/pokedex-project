@@ -6,15 +6,13 @@ export default class Search {
     }
 
     async getResults() {
-
-        const proxy = 'https://cors-anywhere.herokuapp.com/';    
-    
         try {
             const res = await axios(`https://pokeapi.co/api/v2/pokemon/${this.query}`);
             this.result = res.data
+            console.log(this.result)
+            
         } catch (error) {
             alert(error);
         }
     }
 }
-

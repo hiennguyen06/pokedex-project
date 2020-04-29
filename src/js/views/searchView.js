@@ -1,4 +1,4 @@
-import { elements } from './base'; // name import
+import { elements, capitalizeFirstLetter } from './base'; // name import
 
 export const getInput = () => elements.searchInput.value; 
 
@@ -11,14 +11,20 @@ export const clearResult = () => {
     elements.searchPokeList.innerHTML = "";
 }
 
-export const renderPokemon = pokemon => {
+export const clearAllPokemons = () => {
+    elements.allPokemons.innerHTML = "";
+}
+
+export const renderResults = result => {
+
+    const pokeName = capitalizeFirstLetter(result.name)
+
     const markup = `
         <div class="pokemon__card">
-            <a class="pokemon__card--link" href=#${pokemon.id}>
-            <img src="${pokemon.sprites.front_default}">
+            <a class="pokemon__card--link" href=#${result.id}>
+            <img src="${result.sprites.front_default}">
                 <div class="pokemon__card--data">
-                    <p class="pokemon__title">${pokemon.name}</p>
-                    <p class="pokemon__year">${pokemon.weight}</p>
+                    <p class="pokemon__name">${pokeName}</p>
                 </div>                                      
             </a>
         </div>
@@ -26,6 +32,3 @@ export const renderPokemon = pokemon => {
     elements.searchPokeList.insertAdjacentHTML('beforeend', markup);
 };
 
-// export const renderPokemons = pokemons => {
-//     pokemons.forEach(renderPokemon);
-// }
