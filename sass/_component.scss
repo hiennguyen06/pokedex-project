@@ -33,6 +33,7 @@
 
 .pokedex {
     width: 100%;
+    overflow: scroll;
     
     a {
         text-decoration: none;
@@ -88,7 +89,7 @@
 
 
 .pokemon {
-    background-color: #fff;
+  
 }
 
 .pokemon-single {
@@ -127,6 +128,7 @@
         text-transform: capitalize;
     }
 
+
 }
 
 .pokemon__img {
@@ -142,21 +144,87 @@
 
 .pokemon-stats {
     overflow: scroll;
-    margin: 3rem;
+    margin: 4rem;
     // background-color: paleturquoise;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(48rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
     grid-gap: 4rem;
-    text-align: center;
 }
 
 .about {
-    background-color: #abb3c7;
+    background-color: #fff;
+    font-size: 1.8rem;
+    padding: 4rem;
+    display: grid;
+    border-radius: 16px;
+
+
+    .about-info {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        grid-column-gap: 6rem;
+        grid-row-gap: 1.5rem;
+
+        &__label {
+            color: #dad8d7;
+        }
+
+        &__data {
+            color: #171717;
+            // text-transform: capitalize;
+            line-height: 1.5;
+        }
+
+    }
 }
 
 .base {
-    background-color: #36a6c7;
+    background-color: #fff;
+    font-size: 1.8rem;
+    padding: 4rem;
+    display: grid;
+    border-radius: 16px;
+
+    .about-info {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-column-gap: 4rem;
+
+        &__stat {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            grid-column-gap: 2rem;
+          
+            .progress {
+                height: 8px;
+                // margin-left: 1.6rem;
+                margin-top: 8px;
+                align-items: center;
+                background-color: #dad8d7;
+                box-shadow: none;
+
+                .progress-bar {
+                    background-color: #f42b28;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &__label {
+            color: #dad8d7;
+        }
+
+        &__data {
+            color: #171717;
+            // // text-transform: capitalize;
+            // line-height: 1.5;
+        }
+
+    }
 }
+
+
 
 .evolution {
     background-color: #52a163;

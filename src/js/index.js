@@ -4,7 +4,7 @@ import Search from './models/Search';
 import Pokemon from './models/Pokemon';
 import * as searchView from './views/searchView'; // import everything from searchView
 import * as pokemonView from './views/pokemonView'; 
-import { elements, getAllPokemons, renderLoader, clearLoader } from './views/base';
+import { elements, getAllPokemons, renderLoader, clearLoader, } from './views/base';
 
 // Global state of the app
 const state = {}
@@ -64,6 +64,8 @@ const controlPokemon = async () => {
     if (id) {
         // Prepare the UI for changes
         pokemonView.clearPokemon();
+        pokemonView.clearAbout();
+        pokemonView.clearBaseStats();
         renderLoader(elements.singlePokemon);
 
         // Create new Pokemon object
@@ -77,6 +79,8 @@ const controlPokemon = async () => {
             // searchView.clearAllPokemons();
             clearLoader();
             pokemonView.renderSinglePokemon(state.pokemon)
+            pokemonView.renderAbout(state.pokemon)
+            pokemonView.renderStats(state.pokemon)
             console.log(state.pokemon);
         }
         catch (error) {
