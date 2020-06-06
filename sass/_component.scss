@@ -147,7 +147,7 @@
     margin: 4rem;
     // background-color: paleturquoise;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
     grid-gap: 4rem;
 }
 
@@ -173,6 +173,10 @@
             color: #171717;
             // text-transform: capitalize;
             line-height: 1.5;
+        }
+
+        .about-capitalize {
+            text-transform: capitalize;
         }
 
     }
@@ -227,9 +231,87 @@
 
 
 .evolution {
-    background-color: #52a163;
+    background-color: #fff;
+    max-height: fit-content;
+
+    h3 {
+        padding: 2rem 4rem;
+        border-bottom: 1px solid #f8f8f8;
+    }
+    
+    .evolution__card {
+        padding: 2rem 4rem;
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-column-gap: 6rem;
+        border-bottom: 1px solid #f8f8f8;
+        
+    }
+
+    .evolution__card--image {
+        width: 10rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    .evolution__card--info {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        h4 {
+            text-transform: capitalize;
+            margin: 0;
+        }
+    }
 }
 
 .moves {
-    background-color: #f42b28;
+    background-color: #fff;
+    font-size: 1.6rem;
+
+    h3 {
+        padding: 2rem 4rem;
+        border-bottom: 1px solid #f8f8f8;
+    }
+
+    .moves-list {
+        list-style: none;
+        display: grid;
+        // grid-template-columns: 1fr 1fr;
+        grid-column-gap: 6rem;
+
+        li {
+            display: grid;
+            padding: 2rem 4rem;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #f8f8f8;
+            transition: all .1s;
+
+            &:hover {
+                background-color: #f8f8f8;
+            }
+
+        }
+
+        &__name {
+            text-transform: capitalize;
+        }
+
+        
+
+        &__method {
+            justify-self: center;
+            align-self: center;
+            text-transform: capitalize;
+
+        }
+    }
 }

@@ -7,7 +7,9 @@ export const elements = {
     allPokemons: document.querySelector('.pokedex'),
     singlePokemon: document.querySelector('.pokemon'),
     about: document.querySelector('.about'),
-    base: document.querySelector('.base')
+    base: document.querySelector('.base'),
+    evolution: document.querySelector('.evolution'),
+    move: document.querySelector('.moves-list')
 };
 
 export const elementStrings = {
@@ -57,7 +59,7 @@ export const getAllPokemons = async () => {
 }
 
 
-const displayAllPokemons = async (pokemon) => {
+const displayAllPokemons = (pokemon) => {
 
     const pokeName = capitalizeFirstLetter(pokemon.name);
 
@@ -69,7 +71,7 @@ const displayAllPokemons = async (pokemon) => {
     // const type = data.map(type => type.type.name)
     // const type1 = type[0];
     // const type2 = type.length == 2 ? type[1] : " ";
-    
+    // console.log(pokemon);
     const markup = `
         <a class="pokedex-item__link" href=#${pokemon.id}>
             <li class="pokedex-item">
@@ -87,5 +89,5 @@ const displayAllPokemons = async (pokemon) => {
 };
 
 const renderPokemons = pokemons => {
-    pokemons.forEach(displayAllPokemons);
+    pokemons.map(displayAllPokemons);
 }

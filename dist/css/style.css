@@ -144,7 +144,7 @@ body {
   overflow: scroll;
   margin: 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   grid-gap: 4rem; }
 
 .about {
@@ -163,6 +163,8 @@ body {
     .about .about-info__data {
       color: #171717;
       line-height: 1.5; }
+    .about .about-info .about-capitalize {
+      text-transform: capitalize; }
 
 .base {
   background-color: #fff;
@@ -194,10 +196,58 @@ body {
       color: #171717; }
 
 .evolution {
-  background-color: #52a163; }
+  background-color: #fff;
+  max-height: fit-content; }
+  .evolution h3 {
+    padding: 2rem 4rem;
+    border-bottom: 1px solid #f8f8f8; }
+  .evolution .evolution__card {
+    padding: 2rem 4rem;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-column-gap: 6rem;
+    border-bottom: 1px solid #f8f8f8; }
+  .evolution .evolution__card--image {
+    width: 10rem; }
+    .evolution .evolution__card--image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover; }
+  .evolution .evolution__card--info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+    .evolution .evolution__card--info h4 {
+      text-transform: capitalize;
+      margin: 0; }
 
 .moves {
-  background-color: #f42b28; }
+  background-color: #fff;
+  font-size: 1.6rem; }
+  .moves h3 {
+    padding: 2rem 4rem;
+    border-bottom: 1px solid #f8f8f8; }
+  .moves .moves-list {
+    list-style: none;
+    display: grid;
+    grid-column-gap: 6rem; }
+    .moves .moves-list li {
+      display: grid;
+      padding: 2rem 4rem;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid #f8f8f8;
+      transition: all .1s; }
+      .moves .moves-list li:hover {
+        background-color: #f8f8f8; }
+    .moves .moves-list__name {
+      text-transform: capitalize; }
+    .moves .moves-list__method {
+      justify-self: center;
+      align-self: center;
+      text-transform: capitalize; }
 
 .main-container {
   display: flex;

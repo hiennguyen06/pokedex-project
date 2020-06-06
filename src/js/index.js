@@ -66,6 +66,8 @@ const controlPokemon = async () => {
         pokemonView.clearPokemon();
         pokemonView.clearAbout();
         pokemonView.clearBaseStats();
+        pokemonView.clearEvolutionChain();
+        pokemonView.clearMoves();
         renderLoader(elements.singlePokemon);
 
         // Create new Pokemon object
@@ -81,7 +83,9 @@ const controlPokemon = async () => {
             pokemonView.renderSinglePokemon(state.pokemon)
             pokemonView.renderAbout(state.pokemon)
             pokemonView.renderStats(state.pokemon)
-            console.log(state.pokemon);
+            pokemonView.renderEvolutionChain(state.pokemon)
+            pokemonView.renderMoves(state.pokemon)
+            // console.log(state.pokemon);
         }
         catch (error) {
             console.log('Error finding Pokemon');
@@ -93,3 +97,4 @@ const controlPokemon = async () => {
 // window.addEventListener('hashchange', controlPokemon);
 // window.addEventListener('load', controlPokemon);
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlPokemon));
+
