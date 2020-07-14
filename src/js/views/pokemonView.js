@@ -69,7 +69,7 @@ export const renderSinglePokemon = pokemon => {
                 <p class="pokemon-about__label">Abilities<span>:</span></p>
                 <p class="pokemon-about__data about-capitalize">${pokemon.ability}</p>
                 <p class="pokemon-about__label">Gender<span>:</span></p>
-                <p class="pokemon-about__data">$${genderF}, ${genderM}</<p>
+                <p class="pokemon-about__data">${genderF}, ${genderM}</<p>
                 <p class="pokemon-about__label">Egg Group<span>:</span></p>
                 <p class="pokemon-about__data about-capitalize">${pokemon.eggGroup}</<p>
             </div>

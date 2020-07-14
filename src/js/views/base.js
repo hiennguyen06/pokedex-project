@@ -38,7 +38,7 @@ export const clearLoader = () => {
 
 // Render all Pokemons to the Home Page
 export const getAllPokemons = async () => {
-    const url = "https://pokeapi.co/api/v2/pokemon/?limit=20";
+    const url = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
     const res = await axios(url);
     const data = res.data.results;

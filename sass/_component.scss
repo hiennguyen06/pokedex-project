@@ -104,6 +104,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        span {
+            font-size: 1.6rem;
+            letter-spacing: 1.2px;
+        }
+
         button {
             border: none;
             background: none;
@@ -119,9 +125,11 @@
 
     &__heading {
         font-size: 2rem;
-        font-weight: 500;
-        text-decoration: underline;
+        font-weight: 600;
+        text-transform: uppercase;
+        // text-decoration: underline;
         padding-bottom: 1rem;
+        letter-spacing: 1.2px;
     }
 
   &__img {
@@ -183,6 +191,8 @@
     &__name {
         font-size: 5.2rem;
         font-weight: 500;
+        letter-spacing: 1.2px;
+
 
         @media only screen and (max-width: 450px) {
          font-size: 4rem;

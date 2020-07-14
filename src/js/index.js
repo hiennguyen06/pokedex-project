@@ -211,3 +211,9 @@ document.querySelector('.pokemon').addEventListener('click', e => {
          controlPrevPokemon();
      }
 });
+
+document.querySelector('.pokemon').addEventListener('click', e=> {
+    if (e.target.closest('.goback-btn')) {
+        location.reload();
+    }
+});
