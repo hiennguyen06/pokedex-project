@@ -10,6 +10,8 @@ import { elements, getAllPokemons, renderLoader, clearLoader, } from './views/ba
 const state = {}
 
 // shows all pokemons
+
+// pokemonView.clearSinglePokemon();
 getAllPokemons();
 
 const controlSearch = async () => {
@@ -24,7 +26,6 @@ const controlSearch = async () => {
 
         // Prepare UI for results
         searchView.clearInput();
-        searchView.clearAllPokemons();
         searchView.clearResult();
         renderLoader(elements.searchPokeList)
         
@@ -63,15 +64,19 @@ const controlPokemon = async () => {
 
     if (id) {
         // Prepare the UI for changes
+        
         pokemonView.clearPokemon();
-        pokemonView.clearAbout();
-        pokemonView.clearBaseStats();
-        pokemonView.clearEvolutionChain();
-        pokemonView.clearMoves();
-        renderLoader(elements.singlePokemon);
+        // pokemonView.clearAbout();
+        // pokemonView.clearBaseStats();
+        // pokemonView.clearEvolutionChain();
+        // pokemonView.clearMoves();
+        pokemonView.clearLeftSide();
 
+
+        renderLoader(elements.singlePokemon);
         // Create new Pokemon object
         state.pokemon = new Pokemon(id);
+
 
         try {
             // Get the Pokemon Data
@@ -79,13 +84,15 @@ const controlPokemon = async () => {
     
             // Render Pokemon
             // searchView.clearAllPokemons();
+
             clearLoader();
+
             pokemonView.renderSinglePokemon(state.pokemon)
-            pokemonView.renderAbout(state.pokemon)
-            pokemonView.renderStats(state.pokemon)
-            pokemonView.renderEvolutionChain(state.pokemon)
-            pokemonView.renderMoves(state.pokemon)
-            // console.log(state.pokemon);
+            // pokemonView.renderAbout(state.pokemon)
+            // pokemonView.renderStats(state.pokemon)
+            // pokemonView.renderEvolutionChain(state.pokemon)
+            // pokemonView.renderMoves(state.pokemon)
+            console.log(state.pokemon);
         }
         catch (error) {
             console.log('Error finding Pokemon');
@@ -94,7 +101,113 @@ const controlPokemon = async () => {
     }
 }
 
+
 // window.addEventListener('hashchange', controlPokemon);
 // window.addEventListener('load', controlPokemon);
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlPokemon));
 
+// Clear hash when reloading the page
+document.location.hash = '';
+
+// event listener increase hash by 1
+
+// load controlPokemon
+
+
+
+const controlNextPokemon = async () => {
+    const hash = window.location.hash.replace('#', '');
+    const newID = parseInt(hash) + 1;
+    console.log(newID);
+
+    if (newID) {
+        // Prepare the UI for changes
+        window.location.hash = newID;
+        pokemonView.clearPokemon();
+        // pokemonView.clearAbout();
+        // pokemonView.clearBaseStats();
+        // pokemonView.clearEvolutionChain();
+        // pokemonView.clearMoves();
+        pokemonView.clearAllPokemons();
+
+
+        renderLoader(elements.singlePokemon);
+        // Create new Pokemon object
+        state.pokemon = new Pokemon(newID);
+
+
+        try {
+            // Get the Pokemon Data
+            await state.pokemon.getPokemon();
+    
+            // Render Pokemon
+            // searchView.clearAllPokemons();
+
+            clearLoader();
+            pokemonView.renderSinglePokemon(state.pokemon)
+            pokemonView.clearPokemon();
+            // pokemonView.renderAbout(state.pokemon)
+            // pokemonView.renderStats(state.pokemon)
+            // pokemonView.renderEvolutionChain(state.pokemon)
+            // pokemonView.renderMoves(state.pokemon)
+            console.log(state.pokemon);
+        }
+        catch (error) {
+            console.log('Error finding Pokemon');
+        }
+
+    }
+}
+
+const controlPrevPokemon = async () => {
+    const hash = window.location.hash.replace('#', '');
+    const newID = parseInt(hash) - 1;
+    console.log(newID);
+
+    if (newID) {
+        // Prepare the UI for changes
+        window.location.hash = newID;
+        pokemonView.clearPokemon();
+        // pokemonView.clearAbout();
+        // pokemonView.clearBaseStats();
+        // pokemonView.clearEvolutionChain();
+        // pokemonView.clearMoves();
+        pokemonView.clearAllPokemons();
+
+
+        renderLoader(elements.singlePokemon);
+        // Create new Pokemon object
+        state.pokemon = new Pokemon(newID);
+
+
+        try {
+            // Get the Pokemon Data
+            await state.pokemon.getPokemon();
+    
+            // Render Pokemon
+            // searchView.clearAllPokemons();
+
+            clearLoader();
+            pokemonView.renderSinglePokemon(state.pokemon)
+            pokemonView.clearPokemon();
+            // pokemonView.renderAbout(state.pokemon)
+            // pokemonView.renderStats(state.pokemon)
+            // pokemonView.renderEvolutionChain(state.pokemon)
+            // pokemonView.renderMoves(state.pokemon)
+            console.log(state.pokemon);
+        }
+        catch (error) {
+            console.log('Error finding Pokemon');
+        }
+
+    }
+}
+
+document.querySelector('.pokemon').addEventListener('click', e => {
+     if (e.target.closest('.next-pokemon')) { 
+         controlNextPokemon();
+        // console.log(newID);
+     } else if (e.target.closest('.prev-pokemon')) { 
+         controlPrevPokemon();
+     }
+});

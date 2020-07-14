@@ -6,10 +6,8 @@ export const elements = {
     searchPokeList: document.querySelector('.pokemons-results'),
     allPokemons: document.querySelector('.pokedex'),
     singlePokemon: document.querySelector('.pokemon'),
-    about: document.querySelector('.about'),
-    base: document.querySelector('.base'),
-    evolution: document.querySelector('.evolution'),
-    move: document.querySelector('.moves-list')
+    pokemon: document.querySelector('.results'),
+    leftside: document.querySelector('.leftside'),
 };
 
 export const elementStrings = {
@@ -51,27 +49,16 @@ export const getAllPokemons = async () => {
         id: index + 1,
         image: `https://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`,
     }));
-
-
     // console.log(pokemon); // an array of objects
 
     renderPokemons(pokemon);
 }
 
-
 const displayAllPokemons = (pokemon) => {
 
     const pokeName = capitalizeFirstLetter(pokemon.name);
 
-    // const typesURL = `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`;
-    // const res = await axios(typesURL);
-    // console.log(res)
 
-    // const data = res.data.types;
-    // const type = data.map(type => type.type.name)
-    // const type1 = type[0];
-    // const type2 = type.length == 2 ? type[1] : " ";
-    // console.log(pokemon);
     const markup = `
         <a class="pokedex-item__link" href=#${pokemon.id}>
             <li class="pokedex-item">
@@ -79,7 +66,7 @@ const displayAllPokemons = (pokemon) => {
                     <img src="${pokemon.image}">
                 </div>
                 <div class="pokedex-info">
-                    <span class="pokedex-info__id">#${pokemon.id}</span><br>
+                    <span class="pokedex-info__id">#${pokemon.id.toString().padStart(3, '0')}</span><br>
                     <span class="pokedex-info__name">${pokeName}</span><br>                
                 </div>                                      
             </li>
@@ -91,3 +78,4 @@ const displayAllPokemons = (pokemon) => {
 const renderPokemons = pokemons => {
     pokemons.map(displayAllPokemons);
 }
+
