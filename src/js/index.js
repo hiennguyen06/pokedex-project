@@ -2,8 +2,10 @@
 import axios from "axios";
 import Search from './models/Search';
 import Pokemon from './models/Pokemon';
+import Favourites from './models/Favourites';
 import * as searchView from './views/searchView'; // import everything from searchView
 import * as pokemonView from './views/pokemonView'; 
+import * as favouritesView from './views/favouritesView'; 
 import { elements, getAllPokemons, renderLoader, clearLoader, } from './views/base';
 
 // Global state of the app
@@ -87,7 +89,11 @@ const controlPokemon = async () => {
 
             clearLoader();
 
-            pokemonView.renderSinglePokemon(state.pokemon)
+            pokemonView.renderSinglePokemon(  
+                state.pokemon,
+                state.favourites.isFavourited(id)
+            );
+
             // pokemonView.renderAbout(state.pokemon)
             // pokemonView.renderStats(state.pokemon)
             // pokemonView.renderEvolutionChain(state.pokemon)
@@ -95,11 +101,55 @@ const controlPokemon = async () => {
             console.log(state.pokemon);
         }
         catch (error) {
+            console.log(error);
             console.log('Error finding Pokemon');
         }
 
     }
 }
+
+state.favourites = new Favourites();
+
+// FAVOURITE CONTROLLER
+const controlFavourite = () => {
+    if (!state.favourites) state.favourites = new Favourites();
+    const currentID = state.pokemon.id;
+
+    if (!state.favourites.isFavourited(currentID)) {
+        // add the favourite to the state
+        const newFavourite = state.favourites.addFavourite(
+            currentID,
+            state.pokemon.name,
+            state.pokemon.type,
+            state.pokemon.image,
+            state.pokemon.color
+        )
+
+        // Toggle the favourites button
+        favouritesView.toggleFavouriteBtn(true);
+
+        // Render the UI list
+        favouritesView.renderFavourite(newFavourite);
+
+        console.log(state.favourites);
+
+    }  else {
+        // Remove like to the state
+        state.favourites.deleteFavourite(currentID);
+
+        // Toggle the like button
+        favouritesView.toggleFavouriteBtn(false);
+
+        // Remove Like to UI list
+        favouritesView.removeFavourite(currentID);
+        console.log(state.favourites)
+    }
+
+    // Toggle the like menu when there is more than 1 like
+    // favouritesView.toggleFavouriteMenu(state.favourites.getNumFav());
+    
+};
+
 
 
 // window.addEventListener('hashchange', controlPokemon);
@@ -146,6 +196,7 @@ const controlNextPokemon = async () => {
             clearLoader();
             pokemonView.renderSinglePokemon(state.pokemon)
             pokemonView.clearPokemon();
+
             // pokemonView.renderAbout(state.pokemon)
             // pokemonView.renderStats(state.pokemon)
             // pokemonView.renderEvolutionChain(state.pokemon)
@@ -217,3 +268,22 @@ document.querySelector('.pokemon').addEventListener('click', e=> {
         location.reload();
     }
 });
+
+document.querySelector('.pokemon').addEventListener('click', e=> {
+    if (e.target.closest('.fav-btn, fav-btn *')) {
+        controlFavourite();
+        // favouritesView.clearFavourites();
+    }   
+});
+
+// document.querySelector('.fav-container-btn').addEventListener('click', e=> {
+//     pokemonView.clearAllPokemons();
+//     controlFavourite();
+// });
+
+// document.querySelector('.pokemon').addEventListener('click', e=> {
+//     if (e.target.closest('.fav-container-btn, .fav-container-btn *')) {
+//         pokemonView.clearPokemon();
+//         controlFavourite();
+//     }   
+// });

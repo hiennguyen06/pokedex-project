@@ -33,7 +33,7 @@ export const clearLeftSide = () => {
 
 
 
-export const renderSinglePokemon = pokemon => {
+export const renderSinglePokemon = (pokemon, isLiked) => {
 
     const genderF = pokemon.genderRatioFemale == '-12.5% Female' ? "genderless" : pokemon.genderRatioFemale
     const genderM = pokemon.genderRatioMale == '112.5% Male' ? "" : pokemon.genderRatioMale
@@ -43,8 +43,10 @@ export const renderSinglePokemon = pokemon => {
 
         <div class="pokemon-nav">
             <button class="goback-btn"><i class="fas fa-arrow-left"></i></button>
-            <span>POKEMON DETAIL</span>
-            <button><i class="far fa-star"></i></button>
+            <span>Pokémon Detail</span>
+            <button class="fav-container-btn">Favourites</button>
+
+            <button class="fav-btn"><i class="${ isLiked ? 'fas fa-star' : 'far fa-star'}"></i></button>
         </div>
         
         <div class="pokemon__img">
@@ -162,56 +164,56 @@ export const renderSinglePokemon = pokemon => {
 //     elements.about.insertAdjacentHTML('afterbegin', markup);
 // };
 
-export const renderStats = pokemon => {
-    const markup = `
-        <div class="about-info">
-            <p class="about-info__label">HP</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.hp}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.hp}%"></div>
-                </div>
-            </div>
-            <p class="about-info__label">ATK</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.attack}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.attack}%"></div>
-                </div>
-            </div>
-            <p class="about-info__label">DEF</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.defense}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.defense}%"></div>
-                </div>
-            </div>
-            <p class="about-info__label">SPD</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.speed}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.speed}%"></div>
-                </div>
-            </div>
-            <p class="about-info__label">SPA</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.specialAttack}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialAttack}%"></div>
-                </div>
-            </div>
-            <p class="about-info__label">SPD</p>
-            <div class="about-info__stat">
-                <p class="about-info__data">${pokemon.stat.specialDefense}</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialDefense}%"></div>
-                </div>
-            </div>
-        </div>
-    `
-    elements.base.insertAdjacentHTML('afterbegin', markup);
+// export const renderStats = pokemon => {
+//     const markup = `
+//         <div class="about-info">
+//             <p class="about-info__label">HP</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.hp}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.hp}%"></div>
+//                 </div>
+//             </div>
+//             <p class="about-info__label">ATK</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.attack}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.attack}%"></div>
+//                 </div>
+//             </div>
+//             <p class="about-info__label">DEF</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.defense}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.defense}%"></div>
+//                 </div>
+//             </div>
+//             <p class="about-info__label">SPD</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.speed}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.speed}%"></div>
+//                 </div>
+//             </div>
+//             <p class="about-info__label">SPA</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.specialAttack}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialAttack}%"></div>
+//                 </div>
+//             </div>
+//             <p class="about-info__label">SPD</p>
+//             <div class="about-info__stat">
+//                 <p class="about-info__data">${pokemon.stat.specialDefense}</p>
+//                 <div class="progress">
+//                     <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialDefense}%"></div>
+//                 </div>
+//             </div>
+//         </div>
+//     `
+//     elements.base.insertAdjacentHTML('afterbegin', markup);
 
-};
+// };
 
 // export const renderEvolutionChain = pokemon => {
 //     // console.log(pokemon);

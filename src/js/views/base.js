@@ -8,6 +8,7 @@ export const elements = {
     singlePokemon: document.querySelector('.pokemon'),
     pokemon: document.querySelector('.results'),
     leftside: document.querySelector('.leftside'),
+    favourites: document.querySelector('.favourites-container'),
 };
 
 export const elementStrings = {

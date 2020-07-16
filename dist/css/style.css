@@ -247,6 +247,45 @@ body {
     font-weight: 600;
     font-size: 1.6rem; }
 
+.favourites-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  margin: 0 auto; }
+  .favourites-container a {
+    color: inherit;
+    text-decoration: none; }
+    .favourites-container a:hover {
+      color: inherit;
+      text-decoration: none; }
+    .favourites-container a:active {
+      color: inherit;
+      text-decoration: none; }
+  .favourites-container .favourites-container__likes {
+    height: 32rem;
+    width: 20rem;
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 1.6rem;
+    padding: 4rem;
+    text-align: center; }
+    .favourites-container .favourites-container__likes img {
+      width: 12rem; }
+    .favourites-container .favourites-container__likes .favourites-container-info {
+      margin-top: 2rem; }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__id {
+        text-transform: capitalize;
+        border-radius: 8px;
+        padding: 6px 0;
+        background-color: rgba(0, 0, 0, 0.1); }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
+        font-size: 2.4rem;
+        font-weight: 500; }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
+        text-transform: capitalize; }
+
 .main-container {
   width: 50%;
   margin: 0 auto;
@@ -270,7 +309,7 @@ body {
     .leftside__header button {
       font-size: 16px;
       font-weight: bold;
-      padding: 2rem 0rem 2rem 2rem;
+      padding: 2rem 0rem 1.2rem 2rem;
       color: #fff;
       background-color: transparent;
       border: none;
