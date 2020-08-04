@@ -1,4 +1,4 @@
-import { elements, capitalizeFirstLetter } from './base'; // name import
+import { elements, capitalizeFirstLetter, getAllPokemons} from './base'; // name import
 
 export const getInput = () => elements.searchInput.value; 
 
@@ -17,17 +17,22 @@ export const clearAllPokemons = () => {
 
 export const renderResults = result => {
 
-    const pokeName = capitalizeFirstLetter(result.name)
+    const pokeName = capitalizeFirstLetter(result.name);
+    const image = `https://pokeres.bastionbot.org/images/pokemon/${result.id}.png`;
+
 
     const markup = `
-        <div class="pokemon__card">
-            <a class="pokemon__card--link" href=#${result.id}>
-            <img src="${result.sprites.front_default}">
-                <div class="pokemon__card--data">
-                    <p class="pokemon__name">${pokeName}</p>
+        <a class="pokedex-item__link" href=#${result.id}>
+            <li class="pokedex-item">
+                <div class="pokedex-item__img">
+                    <img src="${image}">
+                </div>
+                <div class="pokedex-info">
+                    <span class="pokedex-info__id">#${result.id.toString().padStart(3, '0')}</span><br>
+                    <span class="pokedex-info__name">${pokeName}</span><br>                
                 </div>                                      
-            </a>
-        </div>
+            </li>
+        </a>
     `
     elements.searchPokeList.insertAdjacentHTML('beforeend', markup);
 };

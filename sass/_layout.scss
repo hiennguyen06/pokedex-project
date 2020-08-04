@@ -1,8 +1,7 @@
 .main-container {
     width: 50%;
     margin: 0 auto;
-    height: 100vh;
-    
+    height: 100vh;    
 
     @media only screen and (max-width: 450px) {
         width: 100%;
@@ -23,25 +22,32 @@
         position: sticky;
         top: 0;
         z-index: 1;
-        
-        button {
-            font-size: 16px;
-            font-weight: bold;
-            padding: 2rem 0rem 1.2rem 2rem;
-            color: #fff;
-            background-color: transparent;
-            border: none;
-            outline:none;
-            font-weight: 500;
-            letter-spacing: 1.2px;
 
-            &:hover {
-                opacity: 0.8;
-            }
+        div {
 
-            &:active {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                font-size: 16px;
+                font-weight: bold;
+                padding: 2rem;
+                color: #fff;
+                background-color: transparent;
+                border: none;
+                outline:none;
+                font-weight: 500;
+                letter-spacing: 1.2px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:active {
+                }
             }
         }
+        
     }
 }
 

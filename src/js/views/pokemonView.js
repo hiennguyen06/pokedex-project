@@ -3,20 +3,6 @@ import { elements, capitalizeFirstLetter } from './base';
 export const clearPokemon = () => {
     elements.singlePokemon.innerHTML = '';
 };
-// export const clearAbout = () => {
-//     elements.about.innerHTML = '';
-// };
-
-// export const clearBaseStats = () => {
-//     elements.base.innerHTML = '';
-// };
-// export const clearEvolutionChain = () => {
-//     elements.evolution.innerHTML = '';
-// };
-
-// export const clearMoves = () => {
-//     elements.move.innerHTML = '';
-// };
 
 export const clearAllPokemons = () => {
     elements.allPokemons.innerHTML = '';
@@ -43,8 +29,7 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
 
         <div class="pokemon-nav">
             <button class="goback-btn"><i class="fas fa-arrow-left"></i></button>
-            <span>Pokémon Detail</span>
-            <button class="fav-container-btn">Favourites</button>
+            <span>POKEMON DETAIL</span>
 
             <button class="fav-btn"><i class="${ isLiked ? 'fas fa-star' : 'far fa-star'}"></i></button>
         </div>

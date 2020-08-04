@@ -6,7 +6,7 @@ import Favourites from './models/Favourites';
 import * as searchView from './views/searchView'; // import everything from searchView
 import * as pokemonView from './views/pokemonView'; 
 import * as favouritesView from './views/favouritesView'; 
-import { elements, getAllPokemons, renderLoader, clearLoader, } from './views/base';
+import { elements, getAllPokemons, renderLoader, clearLoader } from './views/base';
 
 // Global state of the app
 const state = {}
@@ -29,6 +29,7 @@ const controlSearch = async () => {
         // Prepare UI for results
         searchView.clearInput();
         searchView.clearResult();
+        pokemonView.clearAllPokemons();
         renderLoader(elements.searchPokeList)
         
         try {
@@ -68,10 +69,6 @@ const controlPokemon = async () => {
         // Prepare the UI for changes
         
         pokemonView.clearPokemon();
-        // pokemonView.clearAbout();
-        // pokemonView.clearBaseStats();
-        // pokemonView.clearEvolutionChain();
-        // pokemonView.clearMoves();
         pokemonView.clearLeftSide();
 
 
@@ -92,7 +89,10 @@ const controlPokemon = async () => {
             pokemonView.renderSinglePokemon(  
                 state.pokemon,
                 state.favourites.isFavourited(id)
+
             );
+            favouritesView.clearFavourites();
+
 
             // pokemonView.renderAbout(state.pokemon)
             // pokemonView.renderStats(state.pokemon)
@@ -108,7 +108,20 @@ const controlPokemon = async () => {
     }
 }
 
-state.favourites = new Favourites();
+// Restore likes recipe on page load
+window.addEventListener('load', () => {
+    state.favourites = new Favourites();
+    
+    // restore the likes
+    state.favourites.readStorage();
+
+    // toggle the like button
+    favouritesView.toggleFavouriteMenu(state.favourites.getNumFav());
+
+    // render the existing likes
+    state.favourites.favourites.forEach(favourite => favouritesView.renderFavourite(favourite));
+});
+
 
 // FAVOURITE CONTROLLER
 const controlFavourite = () => {
@@ -131,7 +144,7 @@ const controlFavourite = () => {
         // Render the UI list
         favouritesView.renderFavourite(newFavourite);
 
-        console.log(state.favourites);
+        // console.log(state.favourites);
 
     }  else {
         // Remove like to the state
@@ -142,11 +155,11 @@ const controlFavourite = () => {
 
         // Remove Like to UI list
         favouritesView.removeFavourite(currentID);
-        console.log(state.favourites)
+        // console.log(state.favourites)
     }
 
     // Toggle the like menu when there is more than 1 like
-    // favouritesView.toggleFavouriteMenu(state.favourites.getNumFav());
+    favouritesView.toggleFavouriteMenu(state.favourites.getNumFav());
     
 };
 
@@ -162,7 +175,6 @@ document.location.hash = '';
 // event listener increase hash by 1
 
 // load controlPokemon
-
 
 
 const controlNextPokemon = async () => {
@@ -271,19 +283,29 @@ document.querySelector('.pokemon').addEventListener('click', e=> {
 
 document.querySelector('.pokemon').addEventListener('click', e=> {
     if (e.target.closest('.fav-btn, fav-btn *')) {
+        favouritesView.clearFavourites();
         controlFavourite();
-        // favouritesView.clearFavourites();
     }   
 });
 
-// document.querySelector('.fav-container-btn').addEventListener('click', e=> {
-//     pokemonView.clearAllPokemons();
-//     controlFavourite();
-// });
+const addHomeFav = () => {
+    const el = document.querySelector(`.favourites-container`);
+    if (el) el.parentElement.appendChild(el); // if this an element, remove it
+};
 
-// document.querySelector('.pokemon').addEventListener('click', e=> {
-//     if (e.target.closest('.fav-container-btn, .fav-container-btn *')) {
-//         pokemonView.clearPokemon();
-//         controlFavourite();
-//     }   
-// });
+document.querySelector('.leftside__header').addEventListener('click', e => {
+
+    if (e.target.matches('.allPokemon-btn')) {
+        window.location.reload();
+
+
+    } else if (e.target.matches('.fav-container-btn')) {
+        pokemonView.clearAllPokemons();
+        const el = document.querySelector(`.favourites-container`).style.display = 'flex';
+        controlFavourite();
+
+    }
+
+});
+
+

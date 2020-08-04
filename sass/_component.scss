@@ -31,7 +31,22 @@
     }
 }
 
-.pokedex {
+.pokedex  {
+    width: 100%;
+    overflow: scroll;
+    
+    a {
+        text-decoration: none;
+        color: #252525;
+
+        &:hover {
+            text-decoration: none;
+
+        }
+    }
+}
+
+.search-results  {
     width: 100%;
     overflow: scroll;
     
@@ -311,11 +326,11 @@
 }
 
 .favourites-container {
-    display: flex;
     flex-wrap: wrap;
     align-items: space-between;
 	justify-content: center;
 	margin: 0 auto;
+    display: none;
 
     a {
         color: inherit;
@@ -333,21 +348,46 @@
     }
 
     .favourites-container__likes {
-        height: 32rem;
-        width: 20rem;
-        background-color: #eee;
-	    border-radius: 20px;
-        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-        margin: 1.6rem;
-        padding: 4rem;
-        text-align: center;
+
+
+        @media only screen and (max-width: 450px) {
+        }
+
+        .favourites-div {
+            height: 32rem;
+            width: 20rem;
+            background-color: #eee;
+            border-radius: 20px;
+            // box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+            margin: 1.6rem;
+            padding: 4rem;
+            text-align: center;
+
+            @media only screen and (max-width: 450px) {
+                height: 24rem;
+                width: 16rem;
+                margin: 1.2rem;
+                padding: 1.6rem;
+            }
+        }
+
+        
 
         img {
             width: 12rem;
+
+            @media only screen and (max-width: 450px) {
+                width: 10rem;
+            }
         }
 
         .favourites-container-info {
             margin-top: 2rem;
+
+            @media only screen and (max-width: 450px) {
+                font-size: 1.6rem;
+                margin-top: 1rem;
+            }
             
             .favourite-title__id {
                 text-transform: capitalize;
@@ -359,10 +399,18 @@
             .favourite-title__name {
                 font-size: 2.4rem;
                 font-weight: 500;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 1.6rem;
+                }
             }
 
             .favourite-title__type {
                 text-transform: capitalize;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 1.2rem;
+                }
 
 
             }

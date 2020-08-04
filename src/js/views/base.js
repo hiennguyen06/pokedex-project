@@ -1,9 +1,10 @@
 import axios from "axios";
 
+
 export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchForm: document.querySelector('.search'),
-    searchPokeList: document.querySelector('.pokemons-results'),
+    searchPokeList: document.querySelector('.search-results'),
     allPokemons: document.querySelector('.pokedex'),
     singlePokemon: document.querySelector('.pokemon'),
     pokemon: document.querySelector('.results'),
@@ -26,7 +27,7 @@ export const renderLoader = parent => {
             <svg>
                 <use href="img/icons.svg#icon-spinner2"></use>
             </svg>
-            <span class="loading">loading</span>
+            <span class="loading"></span>
         </div>
     `;
     parent.insertAdjacentHTML('afterbegin', loader);
@@ -36,6 +37,7 @@ export const clearLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
     if(loader) loader.parentElement.removeChild(loader);
 };
+
 
 // Render all Pokemons to the Home Page
 export const getAllPokemons = async () => {
@@ -79,4 +81,11 @@ const displayAllPokemons = (pokemon) => {
 const renderPokemons = pokemons => {
     pokemons.map(displayAllPokemons);
 }
+
+// const removeHomeFav = () => {
+//     const el = document.querySelector(`.favourites-container`);
+//     if (el) el.parentElement.removeChild(el); // if this an element, remove it
+// };
+
+// removeHomeFav();
 
