@@ -1,6 +1,6 @@
 import { elements, capitalizeFirstLetter, getAllPokemons} from './base'; // name import
 
-export const getInput = () => elements.searchInput.value; 
+export const getInput = () => elements.searchInput.value.toLowerCase(); 
 
 // clear the user input
 export const clearInput = () => {
