@@ -35,9 +35,9 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
         </div>
         
         <div class="pokemon__img">
-            <button class="prev-pokemon"><i class="fas fa-angle-left"></i></button>
+            <button class="prev-pokemon" style="justify-self: flex-start;"><i class="fas fa-angle-left"></i></button>
             <img src="${pokemon.image}">
-            <button class="next-pokemon"><i class="fas fa-angle-right"></i></button>
+            <button class="next-pokemon" style="justify-self: flex-end;"><i class="fas fa-angle-right"></i></button>
         </div>
 
         <div class="pokemon-title">

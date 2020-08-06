@@ -267,10 +267,10 @@ const controlPrevPokemon = async () => {
 }
 
 document.querySelector('.pokemon').addEventListener('click', e => {
-     if (e.target.closest('.next-pokemon')) { 
+     if (e.target.closest('.next-pokemon, .next-pokemon *')) { 
          controlNextPokemon();
         // console.log(newID);
-     } else if (e.target.closest('.prev-pokemon')) { 
+     } else if (e.target.closest('.prev-pokemon, .prev-pokemon *')) { 
          controlPrevPokemon();
      }
 });
