@@ -29,7 +29,7 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
 
         <div class="pokemon-nav">
             <button class="goback-btn"><i class="fas fa-arrow-left"></i></button>
-            <span>POKEMON DETAIL</span>
+            <span>Pokémon Detail</span>
 
             <button class="fav-btn"><i class="${ isLiked ? 'fas fa-star' : 'far fa-star'}"></i></button>
         </div>
@@ -65,13 +65,13 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
         </div>
 
         <div class="pokemon-description">
-            <p class="pokemon__heading">Pokedex Entry</p>
+            <p class="pokemon__heading">Pokédex Entry</p>
             <p class="pokemon-description__entry">${pokemon.desc}</p>
         </div>
 
         
         <div class="stats-info">
-            <p class="pokemon__heading">Stats</p>
+            <p class="pokemon__heading">Pokémon Stats</p>
 
             <div class="stats-info__container">
                 <p class="stats-info__label">HP</p>

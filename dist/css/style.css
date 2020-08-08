@@ -139,7 +139,8 @@ body {
   top: 0;
   z-index: 1; }
   .pokemon .pokemon-nav span {
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    text-transform: uppercase; }
   .pokemon .pokemon-nav button {
     border: none;
     background: none;
@@ -368,7 +369,8 @@ body {
         background-color: transparent;
         border: none;
         outline: none;
-        font-weight: 500; }
+        font-weight: 500;
+        text-transform: uppercase; }
         .leftside__header div button:hover {
           opacity: 0.8; }
 
