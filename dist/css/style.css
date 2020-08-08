@@ -48,17 +48,26 @@ body {
     transform: rotate(360deg); } }
 .search {
   width: 100%;
-  padding: 0 1.6rem 1.6rem 1.6rem; }
+  padding: 0 1.6rem 1.6rem 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .search i {
+    color: #999999;
+    background-color: #fff;
+    font-size: 1.6rem;
+    padding: 12px 0 12px 8px;
+    border-radius: 8px 0 0 8px; }
   .search input[type=text] {
     color: #999999;
     font-weight: normal;
-    padding-left: 12px; }
+    padding-left: 4px; }
   .search__field {
     font-size: 1.6rem;
     font-weight: 300;
     background-color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 0px 8px 8px 0;
     width: 100%;
     height: 4rem; }
     .search__field:focus {
@@ -143,12 +152,11 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 4rem 0 4rem; }
+  padding: 5.4rem 0rem 0 0rem;
+  background-color: #f8f7f7; }
   @media only screen and (max-width: 450px) {
     .pokemon__img {
-      padding: 2rem 2rem 0rem 2rem; } }
+      padding: 2.4rem 0rem 0rem 0rem; } }
   .pokemon__img img {
     width: 28rem;
     height: auto;
@@ -166,13 +174,14 @@ body {
     height: 100%; }
   .pokemon__img i {
     color: #e55755;
-    font-size: 3rem; }
+    font-size: 2rem; }
 .pokemon-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem; }
+  padding: 4rem;
+  background-color: #f8f7f7; }
   @media only screen and (max-width: 450px) {
     .pokemon-title {
       text-align: center;
@@ -190,17 +199,21 @@ body {
       .pokemon-title__name {
         font-size: 4rem; } }
   .pokemon-title__type {
-    font-size: 2rem;
     text-transform: capitalize;
-    border-radius: 8px;
-    padding: 1rem 3rem; }
+    color: #fff;
+    border-radius: 100px;
+    padding: 0.8rem 4rem;
+    font-weight: 600;
+    font-size: 1.8rem; }
     @media only screen and (max-width: 450px) {
       .pokemon-title__type {
-        font-size: 2rem; } }
+        font-size: 2rem;
+        padding: 0.4rem 3rem; } }
 .pokemon-description {
   padding: 4rem 4rem;
   border-radius: 8px;
-  text-align: center; }
+  text-align: center;
+  background-color: #f8f7f7; }
   .pokemon-description__entry {
     font-size: 1.8rem;
     font-weight: 300; }
@@ -219,8 +232,7 @@ body {
     .pokemon .pokemon-about .pokemon-about__container .pokemon-about__label {
       color: #171717;
       font-weight: 600;
-      text-align: right;
-      font-weight: 500; }
+      text-align: right; }
     .pokemon .pokemon-about .pokemon-about__container .pokemon-about__data {
       color: #171717;
       text-transform: capitalize;
@@ -239,7 +251,7 @@ body {
     grid-template-columns: min-content 1fr;
     grid-column-gap: 2rem; }
     .pokemon .stats-info__stat .progress {
-      height: 8px;
+      height: 4px;
       margin-top: 8px;
       align-items: center;
       background-color: #dad8d7;
@@ -269,48 +281,57 @@ body {
     .favourites-container a:active {
       color: inherit;
       text-decoration: none; }
-  .favourites-container .favourites-container__likes .favourites-div {
-    height: 32rem;
-    width: 20rem;
-    background-color: #eee;
-    border-radius: 20px;
-    margin: 1.6rem;
-    padding: 4rem;
-    text-align: center; }
-    @media only screen and (max-width: 450px) {
-      .favourites-container .favourites-container__likes .favourites-div {
-        height: 24rem;
-        width: 16rem;
-        margin: 1.2rem;
-        padding: 1.6rem; } }
-  .favourites-container .favourites-container__likes img {
-    width: 12rem; }
-    @media only screen and (max-width: 450px) {
-      .favourites-container .favourites-container__likes img {
-        width: 10rem; } }
-  .favourites-container .favourites-container__likes .favourites-container-info {
-    margin-top: 2rem; }
-    @media only screen and (max-width: 450px) {
-      .favourites-container .favourites-container__likes .favourites-container-info {
+  .favourites-container .favourites-container__likes {
+    color: #000;
+    font-weight: 600; }
+    .favourites-container .favourites-container__likes:hover {
+      color: #000; }
+    .favourites-container .favourites-container__likes .favourites-div {
+      height: 32rem;
+      width: 20rem;
+      border-radius: 20px;
+      margin: 1.6rem;
+      padding: 4rem;
+      text-align: center; }
+      @media only screen and (max-width: 450px) {
+        .favourites-container .favourites-container__likes .favourites-div {
+          height: 24rem;
+          width: 16rem;
+          margin: 1.2rem;
+          padding: 1.6rem; } }
+    .favourites-container .favourites-container__likes img {
+      width: 12rem; }
+      @media only screen and (max-width: 450px) {
+        .favourites-container .favourites-container__likes img {
+          width: 10rem; } }
+    .favourites-container .favourites-container__likes .favourites-container-info {
+      margin-top: 2rem; }
+      @media only screen and (max-width: 450px) {
+        .favourites-container .favourites-container__likes .favourites-container-info {
+          font-size: 1.6rem;
+          margin-top: 1rem; } }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__id {
+        text-transform: capitalize;
+        padding: 0px 0;
+        color: rgba(0, 0, 0, 0.1);
         font-size: 1.6rem;
-        margin-top: 1rem; } }
-    .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__id {
-      text-transform: capitalize;
-      border-radius: 8px;
-      padding: 6px 0;
-      background-color: rgba(0, 0, 0, 0.1); }
-    .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
-      font-size: 2.4rem;
-      font-weight: 500;
-      text-transform: capitalize; }
-      @media only screen and (max-width: 450px) {
-        .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
-          font-size: 1.6rem; } }
-    .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
-      text-transform: capitalize; }
-      @media only screen and (max-width: 450px) {
-        .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
-          font-size: 1.2rem; } }
+        margin: 0; }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
+        font-size: 2.4rem;
+        font-weight: 500;
+        text-transform: capitalize; }
+        @media only screen and (max-width: 450px) {
+          .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
+            font-size: 1.6rem; } }
+      .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
+        text-transform: capitalize;
+        font-weight: 500;
+        border-radius: 100px;
+        padding: 6px 0;
+        color: #fff; }
+        @media only screen and (max-width: 450px) {
+          .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
+            font-size: 1.2rem; } }
 
 .main-container {
   width: 50%;

@@ -18,39 +18,41 @@ export default class Pokemon {
             
 
             const colors = {
-                // fire: '#EE8130',
-                // grass: '#7AC74C',
-                // electric: '#F7D02C',
-                // water: '#6390F0',
-                // ground: '#E2BF65',
-                // rock: '#B6A136',
-                // fairy: '#D685AD',
-                // poison: '#A33EA1',
-                // bug: '#A6B91A',
-                // dragon: '#6F35FC',
-                // psychic: '#F95587',
-                // flying: '#A98FF3',
-                // fighting: '#C22E28',
-                // normal: '#F5F5F5'
+                fire: '#f29858',
+                grass: '#82d479',
+                electric: '#f4bd3f',
+                water: '#73c7e4',
+                ground: '#d49a6b',
+                rock: '#d6cc95',
+                fairy: '#ed8de5',
+                poison: '#c963d6',
+                bug: '#91c32f',
+                dragon: '#0383bc',
+                psychic: '#ffa399',
+                flying: '#d85c75',
+                fighting: '#d75b75',
+                normal: '#b4bec6'
 
-                fire: '#FDDFDF',
-                grass: '#DEFDE0',
-                electric: '#FCF7DE',
-                water: '#DEF3FD',
-                ground: '#f4e7da',
-                rock: '#d5d5d4',
-                fairy: '#fceaff',
-                poison: '#98d7a5',
-                bug: '#f8d5a3',
-                dragon: '#97b3e6',
-                psychic: '#eaeda1',
-                flying: '#F5F5F5',
-                fighting: '#E6E0D4',
-                normal: '#F5F5F5'
+                // fire: '#FDDFDF',
+                // grass: '#DEFDE0',
+                // electric: '#FCF7DE',
+                // water: '#DEF3FD',
+                // ground: '#f4e7da',
+                // rock: '#d5d5d4',
+                // fairy: '#fceaff',
+                // poison: '#98d7a5',
+                // bug: '#f8d5a3',
+                // dragon: '#97b3e6',
+                // psychic: '#eaeda1',
+                // flying: '#F5F5F5',
+                // fighting: '#E6E0D4',
+                // normal: '#F5F5F5'
             };
             
+            const abilities = res.data.abilities.map(ability => ability.ability.name).join(', ')
+            this.ability = abilities;    
             
-            const main_types = Object.keys(colors); // goes over the enture colors objects and removes the key
+            const main_types = Object.keys(colors); // goes over the entire colors objects and removes the key
             const poke_types = res.data.types.map(type => type.type.name);
 
             const type = main_types.find(type => poke_types.indexOf(type) > -1);
@@ -58,8 +60,6 @@ export default class Pokemon {
             this.color = colors[type];
 
             // this.type2 = types.length == 2 ? types[1] : " ";
-            const abilities = res.data.abilities.map(ability => ability.ability.name).join(', ')
-            this.ability = abilities;    
 
             // get base stats
             let { hp, attack, defense, speed, specialAttack, specialDefense } = '';

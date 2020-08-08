@@ -20,12 +20,12 @@ export const renderFavourite = favourite => {
 
      const markup = `
         <a class="favourites-container__likes"  href="#${favourite.id}">
-                <div class="favourites-div" style="background-color: ${favourite.color}">
+                <div class="favourites-div" style="border: 2px solid ${favourite.color}">
                     <img src="${favourite.image}">
                     <div class="favourites-container-info">
                         <p class="favourite-title__id">#${favourite.id.toString().padStart(3, '0')}</p>
-                        <p class="favourite-title__name">${favourite.name}</p>
-                        <p class="favourite-title__type">Type: ${favourite.type}</p> 
+                        <p class="favourite-title__name" >${favourite.name}</p>
+                        <p class="favourite-title__type favourite-title__id" style="background-color: ${favourite.color}">${favourite.type}</p> 
                     </div>
                 </div>
         </a>

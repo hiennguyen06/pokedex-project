@@ -35,9 +35,9 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
         </div>
         
         <div class="pokemon__img">
-            <button class="prev-pokemon" style="justify-self: flex-start;"><i class="fas fa-angle-left"></i></button>
+            <button class="prev-pokemon"><i style="margin-right: 3rem;" class="fas fa-angle-left"></i></button>
             <img src="${pokemon.image}">
-            <button class="next-pokemon" style="justify-self: flex-end;"><i class="fas fa-angle-right"></i></button>
+            <button class="next-pokemon"><i style="margin-left: 3rem;" class="fas fa-angle-right"></i></button>
         </div>
 
         <div class="pokemon-title">
@@ -78,42 +78,42 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.hp}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.hp}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.hp / 150) * 100}%"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">ATK</p>
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.attack}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.attack}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.attack / 150) * 100}%"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">DEF</p>
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.defense}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.defense}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.defense / 150) * 100}%"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">SPD</p>
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.speed}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.speed}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.speed / 150) * 100}%"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">SPA</p>
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.specialAttack}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialAttack}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.specialAttack / 150) * 100}%; background-color: #f7a43b;"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">SPD</p>
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.specialDefense}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ${pokemon.stat.specialDefense}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.specialDefense / 150) * 100}%; background-color: #f7a43b;"></div>
                     </div>
                 </div>
             </div>

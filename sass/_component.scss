@@ -1,11 +1,22 @@
 .search {
     width: 100%;
     padding: 0 1.6rem 1.6rem 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        color: #999999;
+        background-color: #fff;
+        font-size: 1.6rem;
+        padding: 12px 0 12px 8px;
+        border-radius: 8px 0 0 8px;
+    }
 
     input[type=text] {
         color: #999999;
         font-weight: normal;
-        padding-left: 12px;
+        padding-left: 4px;
     }
 
     &__field {
@@ -13,7 +24,7 @@
         font-weight: 300;
         background-color: #fff;
         border: none;
-        border-radius: 8px;
+        border-radius: 0px 8px 8px 0;
         width: 100%;
         height: 4rem;
 
@@ -144,13 +155,11 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
-    justify-content: space-between;
-    align-items: center;
-    // background-color: #e5e5e5;
-    padding: 4rem 4rem 0 4rem;
+    padding: 5.4rem 0rem 0 0rem;
+    background-color: #f8f7f7;
 
         @media only screen and (max-width: 450px) {
-            padding: 2rem 2rem 0rem 2rem;
+            padding: 2.4rem 0rem 0rem 0rem;
         }
 
     img {
@@ -175,7 +184,7 @@
 
     i {
         color: #e55755;
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
   }
@@ -186,6 +195,8 @@
     justify-content: center;
     align-items: center;
     padding: 4rem;
+    background-color: #f8f7f7;
+
 
     @media only screen and (max-width: 450px) {
          text-align: center;
@@ -210,15 +221,18 @@
     }
 
     &__type {
-        font-size: 2rem;
         text-transform: capitalize;
-        border-radius: 8px;
-        padding: 1rem 3rem;
-        // opacity: 0.2;
+        color: #fff;
+        border-radius: 100px;
+        padding: 0.8rem 4rem;
+        font-weight: 600;
+        font-size: 1.8rem;
 
 
         @media only screen and (max-width: 450px) {
          font-size: 2rem;
+         padding: 0.4rem 3rem;
+
         }
     }
 
@@ -228,6 +242,8 @@
       padding: 4rem 4rem;
       border-radius: 8px;
       text-align: center;
+      background-color: #f8f7f7;
+
 
       &__entry {
           font-size: 1.8rem;
@@ -256,16 +272,12 @@
                 color: #171717;
                 font-weight: 600;
                 text-align: right;
-                font-weight: 500;
-
-
             }
 
             .pokemon-about__data {
                 color: #171717;
                 text-transform: capitalize;
                 font-weight: 300;
-                // margin-left: 1.6rem;
                 text-align: left;
             }
         }
@@ -273,7 +285,6 @@
 
     .stats-info {
         padding: 4rem 4rem;
-        // background-color: #f2f2f2;
         border-radius: 8px;
         text-align: center;
 
@@ -290,7 +301,7 @@
             grid-column-gap: 2rem;
             
             .progress {
-                height: 8px;
+                height: 4px;
                 margin-top: 8px;
                 align-items: center;
                 background-color: #dad8d7;
@@ -339,6 +350,12 @@
     }
 
     .favourites-container__likes {
+        color: #000;
+        font-weight: 600;
+
+        &:hover {
+            color: #000;
+        }
 
 
         @media only screen and (max-width: 450px) {
@@ -347,7 +364,6 @@
         .favourites-div {
             height: 32rem;
             width: 20rem;
-            background-color: #eee;
             border-radius: 20px;
             // box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
             margin: 1.6rem;
@@ -382,9 +398,10 @@
             
             .favourite-title__id {
                 text-transform: capitalize;
-                border-radius: 8px;
-                padding: 6px 0;
-                background-color: rgba(0,0,0,0.1);
+                padding: 0px 0;
+                color: rgba(0,0,0,0.1);
+                font-size: 1.6rem;
+                margin: 0;
             }
 
             .favourite-title__name {
@@ -400,6 +417,10 @@
 
             .favourite-title__type {
                 text-transform: capitalize;
+                font-weight: 500;
+                border-radius: 100px;
+                padding: 6px 0;
+                color: #fff;
 
                 @media only screen and (max-width: 450px) {
                     font-size: 1.2rem;
