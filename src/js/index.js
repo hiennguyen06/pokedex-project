@@ -53,7 +53,6 @@ elements.searchForm.addEventListener('submit', e => { //whenever we submit a for
     controlSearch();
 });
 
-
 // Get a single Pokemon
 // const p = new Pokemon(6)
 // p.getPokemon();
@@ -93,15 +92,10 @@ const controlPokemon = async () => {
             );
             favouritesView.clearFavourites();
 
-
-            // pokemonView.renderAbout(state.pokemon)
-            // pokemonView.renderStats(state.pokemon)
-            // pokemonView.renderEvolutionChain(state.pokemon)
-            // pokemonView.renderMoves(state.pokemon)
             console.log(state.pokemon);
         }
         catch (error) {
-            console.log(error);
+            // console.log(error);
             console.log('Error finding Pokemon');
         }
 
@@ -121,7 +115,6 @@ window.addEventListener('load', () => {
     // render the existing likes
     state.favourites.favourites.forEach(favourite => favouritesView.renderFavourite(favourite));
 });
-
 
 // FAVOURITE CONTROLLER
 const controlFavourite = () => {
@@ -163,8 +156,6 @@ const controlFavourite = () => {
     
 };
 
-
-
 // window.addEventListener('hashchange', controlPokemon);
 // window.addEventListener('load', controlPokemon);
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlPokemon));
@@ -172,99 +163,20 @@ const controlFavourite = () => {
 // Clear hash when reloading the page
 document.location.hash = '';
 
-// event listener increase hash by 1
-
-// load controlPokemon
-
-
-const controlNextPokemon = async () => {
-    const hash = window.location.hash.replace('#', '');
-    const newID = parseInt(hash) + 1;
-    console.log(newID);
-
-    if (newID) {
-        // Prepare the UI for changes
-        window.location.hash = newID;
-        pokemonView.clearPokemon();
-        // pokemonView.clearAbout();
-        // pokemonView.clearBaseStats();
-        // pokemonView.clearEvolutionChain();
-        // pokemonView.clearMoves();
-        pokemonView.clearAllPokemons();
-
-
-        renderLoader(elements.singlePokemon);
-        // Create new Pokemon object
-        state.pokemon = new Pokemon(newID);
-
-
-        try {
-            // Get the Pokemon Data
-            await state.pokemon.getPokemon();
-    
-            // Render Pokemon
-            // searchView.clearAllPokemons();
-
-            clearLoader();
-            pokemonView.renderSinglePokemon(state.pokemon)
-            pokemonView.clearPokemon();
-
-            // pokemonView.renderAbout(state.pokemon)
-            // pokemonView.renderStats(state.pokemon)
-            // pokemonView.renderEvolutionChain(state.pokemon)
-            // pokemonView.renderMoves(state.pokemon)
-            console.log(state.pokemon);
-        }
-        catch (error) {
-            console.log('Error finding Pokemon');
-        }
-
-    }
-}
-
-const controlPrevPokemon = async () => {
-    const hash = window.location.hash.replace('#', '');
-    const newID = parseInt(hash) - 1;
-    console.log(newID);
-
-    if (newID) {
-        // Prepare the UI for changes
-        window.location.hash = newID;
-        pokemonView.clearPokemon();
-        pokemonView.clearAllPokemons();
-
-
-        renderLoader(elements.singlePokemon);
-        // Create new Pokemon object
-        state.pokemon = new Pokemon(newID);
-
-
-        try {
-            // Get the Pokemon Data
-            await state.pokemon.getPokemon();
-    
-            // Render Pokemon
-            // searchView.clearAllPokemons();
-
-            clearLoader();
-            pokemonView.renderSinglePokemon(state.pokemon)
-            pokemonView.clearPokemon();
-            console.log(state.pokemon);
-        }
-        catch (error) {
-            console.log('Error finding Pokemon');
-        }
-
-    }
-}
-
 document.querySelector('.pokemon').addEventListener('click', e => {
+     const hash = window.location.hash.replace('#', '');
+
      if (e.target.closest('.next-pokemon, .next-pokemon *')) { 
-         controlNextPokemon();
-        // console.log(newID);
-     } else if (e.target.closest('.prev-pokemon, .prev-pokemon *')) { 
-         controlPrevPokemon();
-     }
+        const newID = parseInt(hash) + 1;
+        window.location.hash ='#' + newID
+
+     } else if (e.target.closest('.prev-pokemon, .prev-pokemon *')) {
+        const newID = parseInt(hash) - 1;
+            if (newID >= 1 ) {
+                window.location.hash ='#' + newID
+
+            }
+     } 
 });
 
 document.querySelector('.pokemon').addEventListener('click', e=> {
@@ -286,19 +198,15 @@ const addHomeFav = () => {
 };
 
 document.querySelector('.leftside__header').addEventListener('click', e => {
-
     if (e.target.matches('.allPokemon-btn')) {
         window.location.reload();
-
 
     } else if (e.target.matches('.fav-container-btn')) {
         pokemonView.clearAllPokemons();
         const el = document.querySelector(`.favourites-container`).style.display = 'flex';
         controlFavourite();
-
     }
 
 });
-
 
 // window.localStorage.clear();

@@ -259,9 +259,6 @@ body {
 
 .favourites-container {
   flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: center;
-  margin: 0 auto;
   display: none; }
   .favourites-container a {
     color: inherit;
