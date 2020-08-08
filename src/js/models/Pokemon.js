@@ -18,6 +18,21 @@ export default class Pokemon {
             
 
             const colors = {
+                // fire: '#EE8130',
+                // grass: '#7AC74C',
+                // electric: '#F7D02C',
+                // water: '#6390F0',
+                // ground: '#E2BF65',
+                // rock: '#B6A136',
+                // fairy: '#D685AD',
+                // poison: '#A33EA1',
+                // bug: '#A6B91A',
+                // dragon: '#6F35FC',
+                // psychic: '#F95587',
+                // flying: '#A98FF3',
+                // fighting: '#C22E28',
+                // normal: '#F5F5F5'
+
                 fire: '#FDDFDF',
                 grass: '#DEFDE0',
                 electric: '#FCF7DE',
@@ -41,8 +56,6 @@ export default class Pokemon {
             const type = main_types.find(type => poke_types.indexOf(type) > -1);
             this.type = type;
             this.color = colors[type];
-
-
 
             // this.type2 = types.length == 2 ? types[1] : " ";
             const abilities = res.data.abilities.map(ability => ability.ability.name).join(', ')
@@ -109,6 +122,7 @@ export default class Pokemon {
                     return;
                 }
             })
+            
             this.desc = description;
             // console.log(this.desc);
 
@@ -119,46 +133,45 @@ export default class Pokemon {
             this.genderRatioFemale = `${12.5 * femaleRate}% Female`;
             this.genderRatioMale = `${12.5 * (8 - femaleRate)}% Male`;
 
-            //Get the evolution chain id
-            const evolutionChainId = speciesData.data.evolution_chain.url.match(/([^\/]*)\/*$/)[1];
-            // console.log(evolutionChainId)
+            // const evolutionChainId = speciesData.data.evolution_chain.url.match(/([^\/]*)\/*$/)[1];
+            // // console.log(evolutionChainId)
 
-            const getEvolutionChain = await axios(`https://pokeapi.co/api/v2/evolution-chain/${evolutionChainId}`);
-            // console.log(getEvolutionChain)
-            const getEvolutionChainData = getEvolutionChain.data.chain.evolves_to.map(evo => evo.species.name).join('');
-            // console.log(getEvolutionChainData)
+            // const getEvolutionChain = await axios(`https://pokeapi.co/api/v2/evolution-chain/${evolutionChainId}`);
+            // // console.log(getEvolutionChain)
+            // const getEvolutionChainData = getEvolutionChain.data.chain.evolves_to.map(evo => evo.species.name).join('');
+            // // console.log(getEvolutionChainData)
 
-            const dataExample = getEvolutionChain.data.chain.evolves_to;
-            // console.log(dataExample)
-            const getEvolutionChainData2nd = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.species.name)).join('');
-            // console.log(getEvolutionChainData2nd);
+            // const dataExample = getEvolutionChain.data.chain.evolves_to;
+            // // console.log(dataExample)
+            // const getEvolutionChainData2nd = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.species.name)).join('');
+            // // console.log(getEvolutionChainData2nd);
 
-            this.evolutionBase = getEvolutionChain.data.chain.species.name;
-            this.evolutionOne = getEvolutionChainData;
-            this.evolutionTwo = getEvolutionChainData2nd;
-            // console.log(this.evolutionOne);
+            // this.evolutionBase = getEvolutionChain.data.chain.species.name;
+            // this.evolutionOne = getEvolutionChainData;
+            // this.evolutionTwo = getEvolutionChainData2nd;
+            // // console.log(this.evolutionOne);
 
-            this.levelBase = dataExample.map(evolve => evolve.evolution_details.map(level => level.min_level)).join('');
-            // console.log(this.levelBase);
+            // this.levelBase = dataExample.map(evolve => evolve.evolution_details.map(level => level.min_level)).join('');
+            // // console.log(this.levelBase);
 
-            this.levelTwo = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.evolution_details.map(level => level.min_level))).join('');
-            // console.log(this.levelTwo);
+            // this.levelTwo = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.evolution_details.map(level => level.min_level))).join('');
+            // // console.log(this.levelTwo);
 
-            const getPokemonBase = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionBase}`);
-            const getIdBase = getPokemonBase.data.id;
-            const evolutionImageBase = `https://pokeres.bastionbot.org/images/pokemon/${getIdBase}.png`;
-            this.evoImageBase = evolutionImageBase;
+            // const getPokemonBase = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionBase}`);
+            // const getIdBase = getPokemonBase.data.id;
+            // const evolutionImageBase = `https://pokeres.bastionbot.org/images/pokemon/${getIdBase}.png`;
+            // this.evoImageBase = evolutionImageBase;
 
-            const getPokemonOne = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionOne}`);
-            const getIdOne = getPokemonOne.data.id;
-            const evolutionImageOne = `https://pokeres.bastionbot.org/images/pokemon/${getIdOne}.png`;
-            this.evoImageOne = evolutionImageOne;
-            // console.log(this.evoImageOne);
+            // const getPokemonOne = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionOne}`);
+            // const getIdOne = getPokemonOne.data.id;
+            // const evolutionImageOne = `https://pokeres.bastionbot.org/images/pokemon/${getIdOne}.png`;
+            // this.evoImageOne = evolutionImageOne;
+            // // console.log(this.evoImageOne);
 
-            const getPokemonTwo = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionTwo}`);
-            const getIdTwo = getPokemonTwo.data.id;
-            const evolutionImageTwo = `https://pokeres.bastionbot.org/images/pokemon/${getIdTwo}.png`;
-            this.evoImageTwo = evolutionImageTwo;
+            // const getPokemonTwo = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionTwo}`);
+            // const getIdTwo = getPokemonTwo.data.id;
+            // const evolutionImageTwo = `https://pokeres.bastionbot.org/images/pokemon/${getIdTwo}.png`;
+            // this.evoImageTwo = evolutionImageTwo;
 
         }
 

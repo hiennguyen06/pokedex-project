@@ -16,7 +16,7 @@ export const clearFavourites = () => {
 
 export const renderFavourite = favourite => {
 
-    const capitalName = capitalizeFirstLetter(favourite.name)
+    // const capitalName = capitalizeFirstLetter(favourite.name)
 
      const markup = `
         <a class="favourites-container__likes"  href="#${favourite.id}">
@@ -24,7 +24,7 @@ export const renderFavourite = favourite => {
                     <img src="${favourite.image}">
                     <div class="favourites-container-info">
                         <p class="favourite-title__id">#${favourite.id.toString().padStart(3, '0')}</p>
-                        <p class="favourite-title__name">${capitalName}</p>
+                        <p class="favourite-title__name">${favourite.name}</p>
                         <p class="favourite-title__type">Type: ${favourite.type}</p> 
                     </div>
                 </div>

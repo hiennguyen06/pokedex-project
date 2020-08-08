@@ -58,7 +58,7 @@ body {
     font-weight: 300;
     background-color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100%;
     height: 4rem; }
     .search__field:focus {
@@ -67,7 +67,6 @@ body {
     .search__field::-webkit-input-placeholder {
       font-weight: 300;
       font-size: 1.6rem;
-      letter-spacing: 1px;
       color: #999999; }
 
 .pokedex {
@@ -90,7 +89,7 @@ body {
 
 .pokedex-item {
   list-style: none;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -128,8 +127,7 @@ body {
   justify-content: space-between;
   align-items: center; }
   .pokemon .pokemon-nav span {
-    font-size: 1.6rem;
-    letter-spacing: 1.2px; }
+    font-size: 1.6rem; }
   .pokemon .pokemon-nav button {
     border: none;
     background: none;
@@ -140,8 +138,7 @@ body {
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
-  padding-bottom: 1rem;
-  letter-spacing: 1.2px; }
+  padding-bottom: 1rem; }
 .pokemon__img {
   width: 100%;
   display: grid;
@@ -184,11 +181,11 @@ body {
     font-size: 3rem;
     color: #000;
     opacity: 0.2;
-    margin: 0; }
+    margin: 0;
+    font-weight: 600; }
   .pokemon-title__name {
     font-size: 5.2rem;
-    font-weight: 500;
-    letter-spacing: 1.2px; }
+    font-weight: 600; }
     @media only screen and (max-width: 450px) {
       .pokemon-title__name {
         font-size: 4rem; } }
@@ -307,7 +304,8 @@ body {
       background-color: rgba(0, 0, 0, 0.1); }
     .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
       font-size: 2.4rem;
-      font-weight: 500; }
+      font-weight: 500;
+      text-transform: capitalize; }
       @media only screen and (max-width: 450px) {
         .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__name {
           font-size: 1.6rem; } }
@@ -320,7 +318,8 @@ body {
 .main-container {
   width: 50%;
   margin: 0 auto;
-  height: 100vh; }
+  height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif; }
   @media only screen and (max-width: 450px) {
     .main-container {
       width: 100%; } }
@@ -342,14 +341,13 @@ body {
       justify-content: space-between; }
       .leftside__header div button {
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 300;
         padding: 2rem;
         color: #fff;
         background-color: transparent;
         border: none;
         outline: none;
-        font-weight: 500;
-        letter-spacing: 1.2px; }
+        font-weight: 500; }
         .leftside__header div button:hover {
           opacity: 0.8; }
 

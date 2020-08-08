@@ -231,10 +231,6 @@ const controlPrevPokemon = async () => {
         // Prepare the UI for changes
         window.location.hash = newID;
         pokemonView.clearPokemon();
-        // pokemonView.clearAbout();
-        // pokemonView.clearBaseStats();
-        // pokemonView.clearEvolutionChain();
-        // pokemonView.clearMoves();
         pokemonView.clearAllPokemons();
 
 
@@ -253,10 +249,6 @@ const controlPrevPokemon = async () => {
             clearLoader();
             pokemonView.renderSinglePokemon(state.pokemon)
             pokemonView.clearPokemon();
-            // pokemonView.renderAbout(state.pokemon)
-            // pokemonView.renderStats(state.pokemon)
-            // pokemonView.renderEvolutionChain(state.pokemon)
-            // pokemonView.renderMoves(state.pokemon)
             console.log(state.pokemon);
         }
         catch (error) {
@@ -309,3 +301,4 @@ document.querySelector('.leftside__header').addEventListener('click', e => {
 });
 
 
+// window.localStorage.clear();

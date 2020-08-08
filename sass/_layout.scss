@@ -1,7 +1,8 @@
 .main-container {
     width: 50%;
     margin: 0 auto;
-    height: 100vh;    
+    height: 100vh;
+    font-family: 'Source Sans Pro', sans-serif;
 
     @media only screen and (max-width: 450px) {
         width: 100%;
@@ -24,20 +25,18 @@
         z-index: 1;
 
         div {
-
             display: flex;
             justify-content: space-between;
 
             button {
                 font-size: 16px;
-                font-weight: bold;
+                font-weight: 300;
                 padding: 2rem;
                 color: #fff;
                 background-color: transparent;
                 border: none;
                 outline:none;
                 font-weight: 500;
-                letter-spacing: 1.2px;
 
                 &:hover {
                     opacity: 0.8;
