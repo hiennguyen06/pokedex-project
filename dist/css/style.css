@@ -329,7 +329,7 @@ body {
             font-size: 1.6rem; } }
       .favourites-container .favourites-container__likes .favourites-container-info .favourite-title__type {
         text-transform: capitalize;
-        font-weight: 500;
+        font-weight: 600;
         border-radius: 100px;
         padding: 6px 0;
         color: #fff; }

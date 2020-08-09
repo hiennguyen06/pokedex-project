@@ -96,21 +96,19 @@ export default class Pokemon {
             // console.log(movesLevelUp);
 
             const filterLevelUp = movesLevelUp.filter(move => move.version_group_details[0].move_learn_method.name === "level-up");
-            // console.log(filterLevelUp)
+            console.log(filterLevelUp)
 
             const PokemonMoves = filterLevelUp
                 .map((move) => ({
                     moveName: move.move.name,
                     moveLevel: move.version_group_details[0].level_learned_at,
-                    moveMethod: move.version_group_details[0].move_learn_method.name
+                    moveMethod: move.version_group_details[0].move_learn_method.name,
+                    moveURL: move.move.url
                 }))
                 .sort((a,b) => (a.moveLevel > b.moveLevel ? 1 : -1));
             // console.log(PokemonMoves);
             this.moves = PokemonMoves
-                   
             // console.log(this.moves);
-
-            // console.log(evs);
 
             // Get the Pokemon Description from species URL
             const speciesData = await axios(`https://pokeapi.co/api/v2/pokemon-species/${this.id}`);
@@ -134,48 +132,23 @@ export default class Pokemon {
             this.genderRatioMale = `${12.5 * (8 - femaleRate)}% Male`;
 
             // const evolutionChainId = speciesData.data.evolution_chain.url.match(/([^\/]*)\/*$/)[1];
-            // // console.log(evolutionChainId)
+            // this.evolutionID = evolutionChainId
+            // console.log(this.evolutionID);
 
-            // const getEvolutionChain = await axios(`https://pokeapi.co/api/v2/evolution-chain/${evolutionChainId}`);
-            // // console.log(getEvolutionChain)
-            // const getEvolutionChainData = getEvolutionChain.data.chain.evolves_to.map(evo => evo.species.name).join('');
-            // // console.log(getEvolutionChainData)
+            // const evoResponse = await axios(`https://pokeapi.co/api/v2/evolution-chain/${this.evolutionID}`);
+            // const evoData = evoResponse.data.chain;
 
-            // const dataExample = getEvolutionChain.data.chain.evolves_to;
-            // // console.log(dataExample)
-            // const getEvolutionChainData2nd = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.species.name)).join('');
-            // // console.log(getEvolutionChainData2nd);
+            // console.log(evoData);
+            // // let numberOfEvolutions = evoData.evolves_to.length; 
+            // const evolutionChain1 = evoData.evolves_to.map((evo) => ({
+            //     species_name: evo.species.name,
+            //     min_level: evo.evolution_details[0].min_level,
+            //     trigger_name: evo.evolution_details[0].trigger.name
+            // }));
 
-            // this.evolutionBase = getEvolutionChain.data.chain.species.name;
-            // this.evolutionOne = getEvolutionChainData;
-            // this.evolutionTwo = getEvolutionChainData2nd;
-            // // console.log(this.evolutionOne);
-
-            // this.levelBase = dataExample.map(evolve => evolve.evolution_details.map(level => level.min_level)).join('');
-            // // console.log(this.levelBase);
-
-            // this.levelTwo = dataExample.map(evolve => evolve.evolves_to.map(evo => evo.evolution_details.map(level => level.min_level))).join('');
-            // // console.log(this.levelTwo);
-
-            // const getPokemonBase = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionBase}`);
-            // const getIdBase = getPokemonBase.data.id;
-            // const evolutionImageBase = `https://pokeres.bastionbot.org/images/pokemon/${getIdBase}.png`;
-            // this.evoImageBase = evolutionImageBase;
-
-            // const getPokemonOne = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionOne}`);
-            // const getIdOne = getPokemonOne.data.id;
-            // const evolutionImageOne = `https://pokeres.bastionbot.org/images/pokemon/${getIdOne}.png`;
-            // this.evoImageOne = evolutionImageOne;
-            // // console.log(this.evoImageOne);
-
-            // const getPokemonTwo = await axios(`https://pokeapi.co/api/v2/pokemon/${this.evolutionTwo}`);
-            // const getIdTwo = getPokemonTwo.data.id;
-            // const evolutionImageTwo = `https://pokeres.bastionbot.org/images/pokemon/${getIdTwo}.png`;
-            // this.evoImageTwo = evolutionImageTwo;
+            // console.log(evolutionChain1);
 
         }
-
-        
 
         catch (error) {
             console.log(error)

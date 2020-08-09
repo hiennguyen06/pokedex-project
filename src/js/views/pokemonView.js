@@ -99,7 +99,7 @@ export const renderSinglePokemon = (pokemon, isLiked) => {
                 <div class="stats-info__stat">
                     <p class="stats-info__data">${pokemon.stat.speed}</p>
                     <div class="progress">
-                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.speed / 150) * 100}%"></div>
+                        <div class="progress-bar" role="progressBar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="150" style="width: ${(pokemon.stat.speed / 150) * 100}%; background-color: #f7a43b;"></div>
                     </div>
                 </div>
                 <p class="stats-info__label">SPA</p>

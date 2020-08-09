@@ -82,7 +82,6 @@ const controlPokemon = async () => {
     
             // Render Pokemon
             // searchView.clearAllPokemons();
-
             clearLoader();
 
             pokemonView.renderSinglePokemon(  
@@ -95,8 +94,7 @@ const controlPokemon = async () => {
             console.log(state.pokemon);
         }
         catch (error) {
-            // console.log(error);
-            console.log('Error finding Pokemon');
+            console.log(error);
         }
 
     }
@@ -174,7 +172,6 @@ document.querySelector('.pokemon').addEventListener('click', e => {
         const newID = parseInt(hash) - 1;
             if (newID >= 1 ) {
                 window.location.hash ='#' + newID
-
             }
      } 
 });
