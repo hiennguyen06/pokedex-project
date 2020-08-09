@@ -52,7 +52,7 @@ export const getAllPokemons = async () => {
         id: index + 1,
         image: `https://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`,
     }));
-    console.log(pokemon); // an array of objects
+    // console.log(pokemon); // an array of objects
     renderPokemons(pokemon);
 }
 

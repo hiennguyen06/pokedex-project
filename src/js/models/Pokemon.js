@@ -96,7 +96,7 @@ export default class Pokemon {
             // console.log(movesLevelUp);
 
             const filterLevelUp = movesLevelUp.filter(move => move.version_group_details[0].move_learn_method.name === "level-up");
-            console.log(filterLevelUp)
+            // console.log(filterLevelUp)
 
             const PokemonMoves = filterLevelUp
                 .map((move) => ({

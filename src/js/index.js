@@ -91,7 +91,7 @@ const controlPokemon = async () => {
             );
             favouritesView.clearFavourites();
 
-            console.log(state.pokemon);
+            // console.log(state.pokemon);
         }
         catch (error) {
             console.log(error);
